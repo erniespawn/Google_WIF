@@ -29,13 +29,14 @@ jobs:
         workload_identity_provider:  ${{ secrets.WORKLOAD_IDENTITY_PROVIDER_ID }}
         service_account: ${{ secrets.GCP_SERVICE_ACCOUNT }}
 
-    # List the instances in the project
+
+
     - name: List Instances
       run: |-
-        gcloud compute instances list --project $PROJECT_ID
+        gcloud compute instances list --project github-actions-384318
 
-    # Check secrets
+    # Read secret
     - id: 'gcloud'
-       name: 'gcloud'
-       run: |-
+      name: 'gcloud'
+      run: |-
         gcloud secrets versions access "latest" --secret "testing-secret"
