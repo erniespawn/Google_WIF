@@ -35,3 +35,7 @@ jobs:
         gcloud compute instances list --project $PROJECT_ID
 
     # Check secrets
+    - id: 'gcloud'
+       name: 'gcloud'
+       run: |-
+        gcloud secrets versions access "latest" --secret "testing-secret"
