@@ -1,5 +1,3 @@
-
-
 name: Publish to GCR and GHCR
 # create simple trigger based on everytime we make change to this repository
 on: [push]
