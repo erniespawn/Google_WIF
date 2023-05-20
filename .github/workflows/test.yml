@@ -33,15 +33,16 @@ jobs:
           #gcloud auth configure-docker --quiet #authenticate to gcr
           #gcloud auth configure-docker europe-west4-docker.pkg.dev --quiet
           gcloud auth configure-docker europe-docker.pkg.dev --quiet
+          gcloud auth configure-docker europe-west4-docker.pkg.dev --quiet
       
       - name: Push Docker Image to Artifact Registry
         env:
           GIT_TAG: v0.1.0
         run: |-
-          docker tag $IMAGE_NAME:$GIT_TAG europe-docker.pkg.dev/$PROJECT_ID/images/$IMAGE_NAME:$GIT_TAG
-          docker tag $IMAGE_NAME:$GIT_TAG europe-docker.pkg.dev/$PROJECT_ID/images/$IMAGE_NAME:$GIT_TAG
-          docker push europe-docker.pkg.dev/$PROJECT_ID/images/$IMAGE_NAME:$GIT_TAG
-          docker push europe-docker.pkg.dev/$PROJECT_ID/images/$IMAGE_NAME:$GIT_TAG
+          docker tag $IMAGE_NAME$GIT_TAG europe-west4-docker.pkg.dev/$PROJECT_ID/images/$IMAGE_NAME$GIT_TAG
+          docker tag $IMAGE_NAME$GIT_TAG europe-west4-docker.pkg.dev/$PROJECT_ID/images/$IMAGE_NAME$GIT_TAG
+          docker push europe-west4-docker.pkg.dev/$PROJECT_ID/images/$IMAGE_NAME:$GIT_TAG
+          docker push europe-west4-docker.pkg.dev/$PROJECT_ID/images/$IMAGE_NAME:$GIT_TAG
         
     
           
