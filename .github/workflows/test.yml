@@ -35,7 +35,7 @@ jobs:
         
       - name: Push Docker Image to Container Registry (GCR)
         env:
-         IMAGE_NAME: linux_tweet_app2
+          IMAGE_NAME: linux_tweet_app2
           PROJECT_ID: github-actions-384318
         run: |-
           docker tag $IMAGE_NAME:latest gcr.io/$PROJECT_ID/$IMAGE_NAME:latest
