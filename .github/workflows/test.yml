@@ -38,9 +38,9 @@ jobs:
         env:
           GIT_TAG: v0.1.0
         run: |-
-          docker tag $IMAGE_NAME:latest europe-docker.pkg.dev/$PROJECT_ID/images/$IMAGE_NAME:latest
-          docker tag $IMAGE_NAME:latest europe-docker.pkg.dev/$PROJECT_ID/images/$IMAGE_NAME:$GIT_TAG
-          docker push europe-docker.pkg.dev/$PROJECT_ID/images/$IMAGE_NAME:latest
+          docker tag $IMAGE_NAME europe-docker.pkg.dev/$PROJECT_ID/images/$IMAGE_NAME
+          docker tag $IMAGE_NAME europe-docker.pkg.dev/$PROJECT_ID/images/$IMAGE_NAME:$GIT_TAG
+          docker push europe-docker.pkg.dev/$PROJECT_ID/images/$IMAGE_NAME
           docker push europe-docker.pkg.dev/$PROJECT_ID/images/$IMAGE_NAME:$GIT_TAG
         
     
