@@ -39,7 +39,7 @@ jobs:
         
       - name: Configure Docker Client
         run:  |-
-          gcloud auth configure-docker --quiet #authenticate to gcr
+          #gcloud auth configure-docker --quiet #authenticate to gcr
           gcloud auth configure-docker europe-west4-docker.pkg.dev --quiet
         
       #- name: Push Docker Image to Container Registry GCR
@@ -50,7 +50,7 @@ jobs:
         #run: |-
         #  docker tag $IMAGE_NAME:latest gcr.io/$PROJECT_ID/$IMAGE_NAME:latest 
         #  docker push gcr.io/$PROJECT_ID/$IMAGE_NAME:latest
-          
+      
       - name: Push Docker Image to Artifact Registry
         env:
           GIT_TAG: v0.1.0
@@ -61,5 +61,5 @@ jobs:
           docker push europe-west4-docker.pkg.dev/$PROJECT_ID/images/$IMAGE_NAME:$GIT_TAG
         
         
-        
+    
           
